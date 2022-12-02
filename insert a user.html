@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sgin up</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+    <div class="container">
+        <form id="signUp">
+            <div class="mb-3 row">
+                <label for="userID" class="col-4 col-form-label">National ID</label>
+                <div class="col-8">
+                    <input type="text" class="form-control" name="User_ID" id="userID" placeholder="National ID" title="enter14 number" pattern="[0-9]{14}" required>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="userName" class="col-4 col-form-label">Full Name</label>
+                <div class="col-8">
+                    <input type="text" class="form-control" name="User_Name" id="userName" placeholder="Full Name"  pattern="^[a-zA-z]{3,}([ ]+[a-zA-Z]{3,}$)+"required>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="age" class="col-4 col-form-label">Age</label>
+                <div class="col-8">
+                    <input type="number" class="form-control" min="0" max="120" name="User_Age" id="age" placeholder="Your Age"required>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="email" class="col-4 col-form-label">Your Email</label>
+                <div class="col-8">
+                    <input type="email" class="form-control" name="User_Email" id="email" placeholder="Your Email" pattern="^[a-zA-z0-9._%+-]+@[a-zA-Z0-9.-]+(?:\.[a-z]{2,4})$" required >
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="offset-sm-4 col-sm-8">
+                    <button type="submit" class="btn btn-primary">Sign up</button>
+                </div>
+            </div>
+        </form>
+        <input type="radio" name="h" id="">
+        <input type="radio" name="h" id="">
+    </div>
+    <script src="display users&change status .js"></script>
+</body>
+</html>
