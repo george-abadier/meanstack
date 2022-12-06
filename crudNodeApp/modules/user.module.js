@@ -23,12 +23,12 @@ class User{
     }
     static showSingle(id){
         const users=deal.readFromJson()
-    let selectedUser=users.find(user=>user.id=id)
+    let selectedUser=users.find(user=>user.id==id)
     console.log(selectedUser)
     }
      static edit(user) {
         const users = deal.readFromJson()
-        let selectedUserIndex = users.findIndex(usr => usr.id = user.id)
+        let selectedUserIndex = users.findIndex(usr => usr.id == user.id)
         if (selectedUserIndex == -1) {
             console.log('user isn`t exist')
         } else {
@@ -42,7 +42,7 @@ class User{
     }
     static del(id){
         const users=deal.readFromJson()
-        users.splice(users.findIndex(user=>user.id=id)-1,1)
+        users.splice(users.findIndex(user=>user.id==id)-1,1)
         deal.writeToJson(users)
     }
     static showIF(conditions){
