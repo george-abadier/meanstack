@@ -26,15 +26,19 @@ class User{
     let selectedUser=users.find(user=>user.id=id)
     console.log(selectedUser)
     }
-    static edit(user){
-         const users=deal.readFromJson()
-        let selectedUserIndex=users.findIndex(usr=>usr.id=user.id)
-        heads.forEach(head=>{
-            if(user[head.key]){
-              users[selectedUserIndex][head.key]=user[head.key]
-            }
-            deal.writeToJson(users)
-        })
+     static edit(user) {
+        const users = deal.readFromJson()
+        let selectedUserIndex = users.findIndex(usr => usr.id = user.id)
+        if (selectedUserIndex == -1) {
+            console.log('user isn`t exist')
+        } else {
+            heads.forEach(head => {
+                if (user[head.key]) {
+                    users[selectedUserIndex][head.key] = user[head.key]
+                }
+                deal.writeToJson(users)
+            })
+        }
     }
     static del(id){
         const users=deal.readFromJson()
