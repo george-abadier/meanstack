@@ -1,0 +1,39 @@
+{{>header}}
+{{>navbar}}
+<form id="signUp" method="post" action="/add">
+    <div class="mb-3 row">
+        <label for="userName" class="col-4 col-form-label">Task Title</label>
+        <div class="col-8">
+            <input type="text" class="form-control" name="title"  placeholder="Book Name" required>
+        </div>
+    </div>
+     {{!-- <div class="mb-3 row">
+        <label for="userName" class="col-4 col-form-label">Auther Name</label>
+        <div class="col-8">
+            <input type="text" class="form-control" name="author"  placeholder="Auther Name" required>
+        </div>
+    </div> --}}
+    <div class="mb-3">
+      <label for="content" class="form-label">Content</label>
+      <textarea class="form-control" name="content" id="content" rows="3"></textarea>
+    </div>
+    <div class="mb-3 row">
+        <label for="age" class="col-4 col-form-label">date</label>
+        <div class="col-8">
+            <input type="date" class="form-control"  name="taskDeadLine"  placeholder="Number Of Pages"
+                required>
+        </div>
+    </div>
+    {{!-- <div class="mb-3 row">
+        <label for="userName" class="col-4 col-form-label">Category</label>
+        <div class="col-8">
+            <input type="text" class="form-control" name="section"  placeholder="Category" required>
+        </div>
+    </div> --}}
+    <div class="mb-3 row">
+        <div class="offset-sm-4 col-sm-8">
+            <button type="submit" class="btn btn-primary">list</button>
+        </div>
+    </div>
+</form>
+{{>footer}}

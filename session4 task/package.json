@@ -1,0 +1,19 @@
+{
+  "name": "sssion4-task",
+  "version": "1.0.0",
+  "description": "myfirst project by express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index"
+  },
+  "keywords": [],
+  "author": "georgeAyman",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "mongodb": "^4.12.1"
+  }
+}

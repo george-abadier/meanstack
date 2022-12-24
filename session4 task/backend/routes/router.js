@@ -1,0 +1,10 @@
+const router=require("express").Router()
+const book=require('../controller/book')
+router.get("/",(req,res)=>{res.render("welcome")})
+router.get("/show",book.show)
+router.get("/show/:name",book.show)
+router.post("/edit/:id",book.edit)
+router.get("/del/:id",book.delete)
+router.get("/add",book.add)
+router.post("/add",book.add)
+module.exports=router

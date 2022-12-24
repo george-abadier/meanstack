@@ -1,0 +1,10 @@
+require('../db/dbMongooseConnection')
+const express=require('express')
+const userRoutes=require('../routes/user,routes')
+const postRoutes=require('../routes/post.routes')
+const app=express()
+app.use(express.urlencoded({extended:true}))
+app.use(userRoutes)
+app.use(postRoutes)
+app.use(express.json())
+module.exports=app

@@ -1,0 +1,89 @@
+{{>header}}
+{{>navbar}}
+{{!-- <input type="hidden" value="{{booksString}}"> --}}
+{{#if tasks}}
+<table class="table table-primary" id="displayTable">
+    <thead>
+        <tr>
+            {{#each keys}}
+            {{#if (isContent this)}}
+            {{else}}
+            {{#if (isStatus this)}}
+            {{else}}
+            <th scope="col">{{this}}</th>
+            {{/if}}
+            {{/if}}
+            {{/each}}
+            <th scope="col">status</th>
+            {{!-- <td><input type="text" name="" id="search"></td> --}}
+        </tr>
+        {{!-- <tr> --}}
+            {{!-- {{#each keys}}
+            {{#if (is this)}}
+            <td scope="col"><button id="sortByName" class="btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="16" height="16" fill="currentColor" class="bi bi-chevron-expand" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708z" />
+                    </svg></button></td>
+
+            {{else }}
+            {{#if (isNumOfPages this)}}
+            <td scope="col"><button id="sortByNum" class="btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="16" height="16" fill="currentColor" class="bi bi-chevron-expand" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708z" />
+                    </svg></button></td>
+            {{else}}
+            <td scope="col">
+            </td>
+            {{/if}}
+            {{/if}}
+            {{/each}}
+            <td><a href="/show" class="btn btn-primary mx-3" id="searchAnchor">search</a></td>
+        </tr> --}}
+    </thead>
+    <tbody>
+        {{#each tasks}}
+        <tr>
+            {{#each this}}
+            {{#if (isId @key)}}
+            <th scope="row">{{this}}</th>
+            {{else}}
+            {{#if (isContent @key)}}
+            {{else}}
+            {{#if (isStatus @key)}}
+            {{else}}
+            <td>{{this}}</td>
+            {{/if}}
+            {{/if}}
+            {{/if}}
+            {{/each}}
+            <td>
+                {{!-- <a href="/changestatus/{{id}}" class="form-check form-switch"> --}}
+                <div class="form-check form-switch">
+                    {{#if status}}
+                    <input class="form-check-input" type="checkbox" id="{{_id}}"checked>
+                    <label class="form-check-label" for="f{{_id}}">Default switch checkbox input</label>
+                    {{else}}
+                    <input class="form-check-input" type="checkbox" id="{{_id}}">
+                    <label class="form-check-label" for="{{_id}}">Default switch checkbox input</label>
+                    {{/if}}
+                    </div>
+                {{!-- </a> --}}
+            </td>
+            <td><a href="/show/{{_id}}" class="btn btn-primary mx-3">Show more</a></td>
+            <td><a href="/del/{{_id}}" class="btn btn-danger mx-3">Delete</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<h1 class="display-1 text-danger">sorry there is no books now<svg xmlns="http://www.w3.org/2000/svg" width="16"
+        height="16" fill="currentColor" class="bi bi-emoji-frown" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+        <path
+            d="M4.285 12.433a.5.5 0 0 0 .683-.183A3.498 3.498 0 0 1 8 10.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.498 4.498 0 0 0 8 9.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z" />
+    </svg></h1>
+{{/if}}
+<script src="/javascript/search.js"></script>
+{{>footer}}
