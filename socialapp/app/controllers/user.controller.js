@@ -1,3 +1,4 @@
+const{unlink}=require('fs')
 const multer = require('multer')
 const userModel = require('../../db/models/user.models')
 const helper = require('../helpers')
@@ -165,6 +166,11 @@ class User {
             }
             else {
                 try {
+                    if(req.user.image){
+                        await unlink(req.user.image,(e)=>{
+                            if (e) throw new Error('somthing go worng while deleting file please delete it manually')
+                        })
+                    }
                     req.user.image = req.file.path
                     const result = await req.user.save()
                     helper.formatMyRes(res, 200, true, { file: req.file, result }, 'your file uploaded successfully')

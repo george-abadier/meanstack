@@ -1,5 +1,11 @@
 const router=require('express').Router()
 const postController=require('../app/controllers/post.controller')
 const {auth}=require('../app/middleWare')
-router.post('/addpost',auth,postController.addPost)
+router.post('/addpost/:type',auth,postController.addPost)
+router.get('/myposts',auth,postController.myPosts)
+router.get("/allposts", auth, postController.getAll)
+router.delete("/allposts", auth, postController.deleteAllMine)
+router.get("/getpost/:id", auth, postController.getSingle)
+router.delete("/deletesingle/:id", auth, postController.deleteSingle)
+// router.patch("/all/:id", auth,postController.editSingle)
 module.exports=router
